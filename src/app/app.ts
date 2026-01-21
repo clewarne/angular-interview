@@ -16,18 +16,18 @@ export class App {
   protected readonly title = signal('AngularInterview');
   protected readonly store = inject(BookSearchStore);
 
-  isLoading = signal<any>(false);
+  isLoading = signal<any>('false');
 
-  booksIsLoading = computed(() => this.isLoading() ?? false);
+  booksIsLoading = computed(() => this.isLoading() ?? 'false');
 
   constructor() {
     effect(() => {
       const isLoading = this.store.isLoading();
       console.log(isLoading);
       if (isLoading) {
-        this.isLoading.set(true);
+        this.isLoading.set('true');
       } else {
-        this.isLoading.set(false);
+        this.isLoading.set('false');
       }
     });
 
