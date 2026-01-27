@@ -23,12 +23,14 @@ export class App {
   constructor() {
     effect(() => {
       const isLoading = this.store.isLoading();
-      console.log(isLoading);
+      const loading = this.isLoading();
       if (isLoading) {
-        this.isLoading.set('true');
+        loading = true;
       } else {
-        this.isLoading.set('false');
+        loading = false;
       }
+
+      this.isLoading.set(loading);
     });
 
     effect(() => {
